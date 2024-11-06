@@ -98,18 +98,49 @@ Contiene il database delle ricette nel seguente formato:
 
 ## Output
 
-Il programma genera un file JSON contenente:
+Il programma genera un file JSON (es. `meal_plans_dataset_20241106_094936.json`) contenente:
 - Piani alimentari settimanali per ogni utente
 - Analisi nutrizionale dettagliata
 - Verifica del raggiungimento degli obiettivi nutrizionali
 - Statistiche aggregate
+
+Un esempio di output è disponibile nella cartella `sample_data/meal_plans_dataset_20241106_094936.json`.
+
+### Struttura Output
+```json
+{
+  "metadata": {
+    "version": "1.0",
+    "date": "2024-11-06",
+    "generated_profiles": 300
+  },
+  "meal_plans": [
+    {
+      "user_id": "001",
+      "week_plan": {
+        "monday": {
+          "breakfast": {...},
+          "lunch": {...},
+          "dinner": {...},
+          "snacks": [...]
+        },
+        // altri giorni...
+      },
+      "nutritional_analysis": {...},
+      "goals_achieved": {...}
+    }
+    // altri utenti...
+  ]
+}
+```
 
 ## Utilizzo
 
 1. Avviare il notebook in Google Colab
 2. Eseguire tutte le celle in ordine
 3. Quando richiesto, caricare i file di input (survey_data.json e ricettario.json)
-4. Il programma genererà automaticamente i piani alimentari e salverà l'output
+4. Il programma genererà automaticamente i piani alimentari e salverà l'output in un file JSON
+   (vedere esempio in `sample_data/meal_plans_dataset_20241106_094936.json`)
 
 ## Componenti Principali
 
